@@ -145,7 +145,7 @@ const frameHandler = frames(async (ctx) => {
       const parsedUrl = new URL(url);
       let fid = parsedUrl.searchParams.get("userfid");
 
-      console.log("Extracted FID from URL:", fid);
+      //console.log("Extracted FID from URL:", fid);
       return fid;
     } catch (e) {
       console.error("Error parsing URL:", e);
@@ -160,14 +160,14 @@ const frameHandler = frames(async (ctx) => {
     // console.log("Using requester FID:", fid);
   } else if (ctx.url) {
     fid = extractFid(ctx.url.toString());
-    console.log("Extracted FID from URL:", fid);
+    //console.log("Extracted FID from URL:", fid);
   } else {
     console.log("No ctx.url available");
   }
 
   if (!fid && (ctx.state as State)?.lastFid) {
     fid = (ctx.state as State).lastFid ?? null;
-    console.log("Using FID from state:", fid);
+    //console.log("Using FID from state:", fid);
   }
 
   // console.log("Final FID used:", fid);
